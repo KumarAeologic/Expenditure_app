@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:expendature_app/screen/GroupPage/update_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -107,6 +108,7 @@ class _GroupPageState extends State<GroupPage> {
                   children: [
                     TableCell(
                         child: Container(
+                          height: 50,
                           color: Colors.greenAccent,
                           child: const Center(
                             child: Text("S/No.",style: TextStyle(
@@ -116,6 +118,7 @@ class _GroupPageState extends State<GroupPage> {
                         )),
                     TableCell(
                         child: Container(
+                          height: 50,
                           color: Colors.greenAccent,
                           child: const Center(
                             child: Text("Group Name",style: TextStyle(
@@ -125,6 +128,7 @@ class _GroupPageState extends State<GroupPage> {
                         )),
                     TableCell(
                         child: Container(
+                          height: 50,
                           color: Colors.greenAccent,
                           child: const Center(
                             child: Text("Created By",style: TextStyle(
@@ -134,6 +138,7 @@ class _GroupPageState extends State<GroupPage> {
                         )),
                     TableCell(
                         child: Container(
+                          height: 50,
                           color: Colors.greenAccent,
                           child: const Center(
                             child: Text("Created On",style: TextStyle(
@@ -143,6 +148,7 @@ class _GroupPageState extends State<GroupPage> {
                         )),
                     TableCell(
                         child: Container(
+                          height: 50,
                           color: Colors.greenAccent,
                           child: const Center(
                             child: Text("Action",style: TextStyle(
@@ -182,179 +188,20 @@ class _GroupPageState extends State<GroupPage> {
                       child: Row(
                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.edit_rounded,size: 17,)),
+                          IconButton(onPressed: () => {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                            UpdatePage(),))
+                          },
+                              icon: const Icon(Icons.edit_rounded,size: 25,color: Colors.orange,)),
                           IconButton(onPressed: () => {
                             deleteUser(1),
                           },
-                              icon: const Icon(Icons.delete,size: 17,)),
+                              icon: const Icon(Icons.delete,size: 25,color: Colors.red,)),
                         ],
                       ),
                        ),
                   ]
               ),
-              TableRow(
-                  children: [
-                    const TableCell(
-                        child: Center(
-                          child: Text("2",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("B",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("Prince",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("15/2/2021",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    TableCell(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.edit_rounded,size: 17,)),
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.delete,size: 17,)),
-                        ],
-                      ),
-                    ),
-                  ]
-              ),
-              TableRow(
-                  children: [
-                    const TableCell(
-                        child: Center(
-                          child: Text("3",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("C",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("Mausham",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("21/3/2021",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    TableCell(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.edit_rounded,size: 17,)),
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.delete,size: 17,)),
-                        ],
-                      ),
-                    ),
-                  ]
-              ),
-              TableRow(
-                  children: [
-                    const TableCell(
-                        child: Center(
-                          child: Text("4",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("D",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("Nishav",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("05/4/2021",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    TableCell(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.edit_rounded,size: 17,)),
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.delete,size: 17,)),
-                        ],
-                      ),
-                    ),
-                  ]
-              ),
-              TableRow(
-                  children: [
-                    const TableCell(
-                        child: Center(
-                          child: Text("5",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("E",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("Meenakshi",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    const TableCell(
-                        child: Center(
-                          child: Text("14/5/2021",style: TextStyle(
-                              fontSize: 12,fontWeight: FontWeight.bold
-                          ),),
-                        )),
-                    TableCell(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.edit_rounded,size: 17,)),
-                          IconButton(onPressed: () {},
-                              icon: const Icon(Icons.delete,size: 17,)),
-                        ],
-                      ),
-                    ),
-                  ]
-              ),
-
-
-
-
-
-
             ],
           ),
         ),

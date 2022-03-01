@@ -1,57 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
-
-class AddGroup extends StatefulWidget {
-  const AddGroup({Key? key}) : super(key: key);
+class UpdatePage extends StatefulWidget {
+  const UpdatePage({Key? key}) : super(key: key);
 
   @override
-  _AddGroupState createState() => _AddGroupState();
+  _UpdatePageState createState() => _UpdatePageState();
+}
+final _formKey = GlobalKey<FormState>();
+
+updateUser(){
+  print('User Updated');
 }
 
-class _AddGroupState extends State<AddGroup> {
-  final _formKey = GlobalKey<FormState>();
-  
-  var serialnumber = "";
-  var groupname = "";
-  var createdby = "";
-  var createdon = "";
-
-  final serialnumberController = TextEditingController();
-  final groupnameController = TextEditingController();
-  final createdbyController = TextEditingController();
-  final createdonController = TextEditingController();
-
-
-  @override
-  void dispose(){
-    //Clean up the controller when the widget is disposed.
-    serialnumberController.dispose();
-    groupnameController.dispose();
-    createdbyController.dispose();
-    createdonController.dispose();
-    super.dispose();
-  }
-
-  clearText() {
-    serialnumberController.clear();
-    groupnameController.clear();
-    createdbyController.clear();
-    createdonController.clear();
-  }
-  addUser(){
-    print('User Added');
-  }
-
+class _UpdatePageState extends State<UpdatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black54,size: 26),
         backgroundColor: const Color(0xFFFFE57F),
-        title: Text('Add Group',style: TextStyle(color: Colors.black54),),
+        title: Text('Update User',style: TextStyle(color: Colors.black54),),
       ),
       body: Form(
         key: _formKey,
@@ -64,12 +33,11 @@ class _AddGroupState extends State<AddGroup> {
                 child: TextFormField(
                   autofocus: false,
                   decoration: const InputDecoration(
-                    labelText: 'Serial Number',
-                    labelStyle: TextStyle(fontSize: 20),
+                      labelText: 'Serial Number',
+                      labelStyle: TextStyle(fontSize: 20),
                       border: OutlineInputBorder(),
-                    errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
+                      errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
                   ),
-                  controller: serialnumberController,
                   validator: (value) {
                     if(value!.isEmpty)
                     {
@@ -86,13 +54,13 @@ class _AddGroupState extends State<AddGroup> {
                 margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                 child: TextFormField(
                   autofocus: false,
+                  onChanged: (value) => {},
                   decoration: const InputDecoration(
                       labelText: 'Group Name',
                       labelStyle: TextStyle(fontSize: 20),
                       border: OutlineInputBorder(),
                       errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
                   ),
-                   controller: groupnameController,
                   validator: (value){
                     if (value == null || value.isEmpty){
                       return 'Please Enter Group Name';
@@ -105,13 +73,13 @@ class _AddGroupState extends State<AddGroup> {
                 margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                 child: TextFormField(
                   autofocus: false,
+                  onChanged: (value) => {},
                   decoration: const InputDecoration(
                       labelText: 'Created By',
                       labelStyle: TextStyle(fontSize: 20),
                       border: OutlineInputBorder(),
                       errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
                   ),
-                  controller: createdbyController,
                   validator: (value){
                     if (value == null || value.isEmpty){
                       return 'Please Valid Text';
@@ -124,13 +92,13 @@ class _AddGroupState extends State<AddGroup> {
                 margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                 child: TextFormField(
                   autofocus: false,
+                  onChanged: (value) => {},
                   decoration: const InputDecoration(
                       labelText: 'Created On',
                       labelStyle: TextStyle(fontSize: 20),
                       border: OutlineInputBorder(),
                       errorStyle: TextStyle(color: Colors.redAccent,fontSize: 15)
                   ),
-                  controller: createdonController,
                   validator: (value) {
                     if(value!.isEmpty)
                     {
@@ -148,26 +116,17 @@ class _AddGroupState extends State<AddGroup> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                       if (_formKey.currentState!.validate()){
-                          setState(() {
-                            serialnumber = serialnumberController.text;
-                            groupname = groupnameController.text;
-                            createdby = createdbyController.text;
-                            createdon = createdonController.text;
-                            addUser();
-                            clearText();
-                          }
-                          );
+                        if (_formKey.currentState!.validate()){
+                         updateUser();
+                         Navigator.pop(context);
                         }
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(const Color(0xFFFFE57F)),
                       ),
-                      child: const Text('Submit',style: TextStyle(fontSize: 18,color: Colors.black54),)),
+                      child: const Text('Update',style: TextStyle(fontSize: 18,color: Colors.black54),)),
                   ElevatedButton(
-                      onPressed: () {
-                         clearText();
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(const Color(0xFFFFE57F)),
                       ),
@@ -181,4 +140,3 @@ class _AddGroupState extends State<AddGroup> {
     );
   }
 }
-
