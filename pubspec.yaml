@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   email_validator: '^1.0.0'
+  google_sign_in: ^5.2.4
 
   flutter:
     sdk: flutter
